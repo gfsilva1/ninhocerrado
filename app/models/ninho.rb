@@ -1,0 +1,2 @@
+class Ninho < ApplicationRecord
+end
