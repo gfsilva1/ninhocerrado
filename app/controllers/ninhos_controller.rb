@@ -20,6 +20,6 @@ class NinhosController < ApplicationController
   private
 
   def ninho_params
-    params.require(:ninho).permit(:nome, :descricao, :valor)
+    params.require(:ninho).permit(:nome, :descricao, :valor, :photo)
   end
 end
