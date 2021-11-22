@@ -1,22 +1,45 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1594280469678-b2e9155feeb1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80);">
   <div class="container py-5">
-    <div class="row">
-      <div class="col-12 col-md-6 offset-lg-3">
-        <div class="bg-white rounded p-3 shadow">
-          <h3 style="color:white">Adicionar um produto ratoerinha  </h3>
-            <%= form_for(@ninho, :html => { :style => 'color:white;' })  do |f| %>
-              <%= f.label :nome %>
-              <%= f.text_field :nome %>
-              <%= f.label :descricao %>
-              <%= f.text_field :descricao %>
-              <%= f.label :valor %>
-              <%= f.number_field :valor %>
-              <%= f.file_field :photo %>
-              <%= f.submit %>
-            <% end %>
-        </div>
-        <%= link_to "Voltar", root_path, class: "btn btn-ghost" %>
-      </div>
-    </div>
+
+
+          <div class="bg-white rounded p-3 shadow">
+            <h3 style="color:white">Adicionar um produto ratoerinha  </h3>
+              <div class="form">
+                          <%= simple_form_for @ninho do |f| %>
+
+                            <%=f.input :nome,
+                                        required: true,
+                                        autofocus: true,
+                                        class: 'form-style border border-1 border-white rounded',
+                                        placeholder: "Nome" %>
+                            <i class='input-icon uil uil-at'></i>
+
+                            <%=f.input :descricao,
+                                        required: false,
+                                        autofocus: true,
+                                        class: 'form-style border border-1 border-white rounded',
+                                        placeholder: "Tamanho" %>
+                            <i class='input-icon uil uil-at'></i>
+
+                            <%=f.input :valor,
+                                        required: true,
+                                        autofocus: true,
+                                        class: 'form-style border border-1 border-white rounded',
+                                        placeholder: "Valor"%>
+                            <i class='input-icon uil uil-at'></i>
+
+                            <%= f.input :photo,
+                                        as: :file,
+                                        class: 'btn-sign mb-1 mt-3 rounded-3' %>
+
+                            <div class="form-actions">
+                              <%= f.submit "Criar produto", class: 'btn-sign mb-1 mt-3 rounded-3' %>
+                            </div>
+                          <% end %>
+              </div>
+          </div>
+          <%= link_to "Voltar", root_path, class: "btn btn-ghost" %>
+
+
   </div>
 </div>
